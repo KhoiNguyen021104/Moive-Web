@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding-inline: 32px;
+  padding-block: 16px;
+  gap: 32px;
+  border-bottom: 1px solid var(--border-color);
+
+  .header__logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar {
+    flex: 1;
+  }
+}
