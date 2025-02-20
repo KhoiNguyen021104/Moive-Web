@@ -1,0 +1,16 @@
+.poster {
+  width: 100%;
+  position: relative;
+
+  >img {
+    width: 100%;
+    border-radius: 4px;
+  }
+
+  .poster__title {
+    color: inherit;
+    font-size: 17px;
+    font-weight: 400;
+    margin-top: 16px;
+  } 
+}

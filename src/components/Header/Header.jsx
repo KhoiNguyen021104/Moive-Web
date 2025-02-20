@@ -8,7 +8,7 @@ function Header() {
   return (
     <div className={cx("header")}>
       <div className={cx("header__logo")}>
-        <img width={125} src='\src\assets\imgs\logo.png' alt='' />
+        <img width={125} src='\src\assets\imgs\logo.png' alt=''/>
       </div>
       <div className={cx("navbar")}>
         <Navbar />

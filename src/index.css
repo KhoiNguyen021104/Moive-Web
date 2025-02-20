@@ -23,11 +23,17 @@ html, body {
   margin: 0;
   padding: 0;
   max-width: 100vw;
-  max-height: 100vh;
+  height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
 }
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 ul {
@@ -37,6 +43,10 @@ ul {
 
 li {
   list-style: none;
+}
+
+#root {
+  height: 100%;
 }
 
 .d-flex {

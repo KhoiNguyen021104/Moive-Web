@@ -47,7 +47,6 @@ function Navbar() {
           copyRes.splice(0, 8);
         }
       }
-      console.log("🚀 ~ fetchCountries ~ newState:", newState);
       setCountries(newState);
     };
 
@@ -58,6 +57,7 @@ function Navbar() {
     <nav className={cx("navbar-wrapper")}>
       <ul>
         <li className={cx("active")}>Trang chủ</li>
+        <li>TV shows</li>
         <li>Phim lẻ</li>
         <li>Phim bộ</li>
         <li>
@@ -69,6 +69,7 @@ function Navbar() {
                 <div key={index} className={cx("subnav-col")}>
                   {parts?.map((type) => (
                     <a href={type?.slug} key={type?._id}>
+                      {/* <li>Phim {type?.name?.toLowerCase()}</li> */}
                       <li>{type?.name}</li>
                     </a>
                   ))}
@@ -96,12 +97,15 @@ function Navbar() {
         </li>
       </ul>
       <div className={cx("navbar-right")}>
-        <div className={cx("search-field")}>
+        {/* <div className={cx("search-field")}>
           <input type='text' placeholder='Tìm kiếm phim...' />
           <button>
             <Search />
           </button>
-        </div>
+        </div> */}
+        <button className={cx("btn-search")}>
+          <Search />
+        </button>
         <button className={cx("btn-login")}>Đăng nhập</button>
       </div>
     </nav>

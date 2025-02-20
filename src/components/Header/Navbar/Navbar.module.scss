@@ -25,8 +25,6 @@
         display: flex;
       }
 
-
-
       &.active {
         color: #fff;
         font-weight: 700;
@@ -42,7 +40,7 @@
       }
 
       .subnav {
-        background-color: #fff;
+        background-color: #1F1F1F;
         position: absolute;
         top: 134%;
         left: -8px;
@@ -68,7 +66,7 @@
           >a {
             >li {
               white-space: nowrap;
-              color: #000;
+              color: #fff;
               padding-block: 6px;
 
               &:hover {
@@ -86,31 +84,44 @@
     align-items: center;
     gap: 12px;
     overflow: hidden;
-    width: 600px;
 
-    .search-field {
+    // .search-field {
+    //   display: flex;
+    //   align-items: center;
+    //   flex: 1;
+
+    //   input {
+    //     width: 100%;
+    //     border: none;
+    //     padding: 8px;
+    //     outline: none;
+    //     caret-color: var(--primary-color);
+    //   }
+
+    //   button {
+    //     border: none;
+    //     padding: 6px 8px;
+    //     background: #fff;
+    //     cursor: pointer;
+
+    //     >svg {
+    //       width: 16px;
+    //       height: 16px;
+    //     }
+    //   }
+    // }
+
+    .btn-search {
+      border: none;
+      background: transparent;
       display: flex;
       align-items: center;
-      flex: 1;
+      cursor: pointer;
 
-      input {
-        width: 100%;
-        border: none;
-        padding: 8px;
-        outline: none;
-        caret-color: var(--primary-color);
-      }
-
-      button {
-        border: none;
-        padding: 6px 8px;
-        background: #fff;
-        cursor: pointer;
-
-        >svg {
-          width: 16px;
-          height: 16px;
-        }
+      svg {
+        color: #fff;
+        width: 22px;
+        height: 22px;
       }
     }
 
