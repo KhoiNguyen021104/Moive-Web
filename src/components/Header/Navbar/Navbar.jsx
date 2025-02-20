@@ -57,9 +57,15 @@ function Navbar() {
     <nav className={cx("navbar-wrapper")}>
       <ul>
         <li className={cx("active")}>Trang chủ</li>
-        <li>TV shows</li>
-        <li>Phim lẻ</li>
-        <li>Phim bộ</li>
+        <li>
+          <Link to='/tv-shows'>TV shows</Link>
+        </li>
+        <li>
+          <Link to='/phim-le'>Phim lẻ</Link>
+        </li>
+        <li>
+          <Link to='phim-bo'>Phim bộ</Link>
+        </li>
         <li>
           Thể loại
           <ChevronDown />
@@ -68,10 +74,9 @@ function Navbar() {
               {typeMovies?.map((parts, index) => (
                 <div key={index} className={cx("subnav-col")}>
                   {parts?.map((type) => (
-                    <a href={type?.slug} key={type?._id}>
-                      {/* <li>Phim {type?.name?.toLowerCase()}</li> */}
+                    <Link to={type?.slug} key={type?._id}>
                       <li>{type?.name}</li>
-                    </a>
+                    </Link>
                   ))}
                 </div>
               ))}
@@ -86,9 +91,9 @@ function Navbar() {
               {countries?.map((parts, index) => (
                 <div key={index} className={cx("subnav-col")}>
                   {parts?.map((type) => (
-                    <a href={type?.slug} key={type?._id}>
+                    <Link to={type?.slug} key={type?._id}>
                       <li>{type?.name}</li>
-                    </a>
+                    </Link>
                   ))}
                 </div>
               ))}

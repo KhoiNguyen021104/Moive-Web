@@ -6,21 +6,20 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import Poster from "../../Poster/Poster";
 import CarouselTitle from "../CarouselTitle/CarouselTitle";
-import { getMoviesAPI } from "../../../apis/apis";
 
 const cx = classNames.bind(styles);
 
-function CategoryCarousel({ size }) {
+function CategoryCarousel({ data }) {
   const [category, setCategory] = useState([]);
-  const [carouselProps, setCarouselProps] = useState({})
+  const [carouselProps, setCarouselProps] = useState({});
   useEffect(() => {
-    switch (size) {
+    switch (data?.size) {
       case "small":
         setCarouselProps({
           height: 115,
           slidesToScroll: 5,
           slidesToShow: 5.2,
-          typeImage: 'thumbnail',
+          typeImage: "thumbnail",
         });
         break;
       case "medium":
@@ -28,7 +27,7 @@ function CategoryCarousel({ size }) {
           height: 200,
           slidesToScroll: 3,
           slidesToShow: 3.2,
-          typeImage: 'thumbnail',
+          typeImage: "thumbnail",
         });
         break;
       case "large":
@@ -36,11 +35,11 @@ function CategoryCarousel({ size }) {
           height: 300,
           slidesToScroll: 5,
           slidesToShow: 5.2,
-          typeImage: 'poster',
+          typeImage: "poster",
         });
         break;
     }
-  }, [size]);
+  }, [data?.size]);
   const settings = {
     dots: false,
     infinite: false,
@@ -50,38 +49,49 @@ function CategoryCarousel({ size }) {
     arrows: true,
     draggable: false,
     prevArrow: (
-      <CustomPrevArrow slidesToShow={carouselProps?.slidesToShow} height={carouselProps?.height} />
+      <CustomPrevArrow
+        slidesToShow={carouselProps?.slidesToShow}
+        height={carouselProps?.height}
+      />
     ),
     nextArrow: (
-      <CustomNextArrow slidesToShow={carouselProps?.slidesToShow} height={carouselProps?.height} />
+      <CustomNextArrow
+        slidesToShow={carouselProps?.slidesToShow}
+        height={carouselProps?.height}
+      />
     ),
   };
 
   useEffect(() => {
-    const getMovies = async () => {
-      const res1 = await getMoviesAPI(1);
-      const res2 = await getMoviesAPI(2);
-      const res3 = await getMoviesAPI(3);
-      if (res1 && res2 && res3) {
-        setCategory([...res1.items, ...res2.items, ...res3.items]);
-      }
-    };
-    getMovies();
-  }, []);
+    if (data?.funcAPI) {
+      const fetchAPI = async () => {
+        const res = await data?.funcAPI({ ...data?.params });
+        setCategory(res.items ? res.items : res);
+        console.log("🚀 ~ fetchAPI ~ res:", res);
+      };
+      fetchAPI();
+    }
+  }, [data]);
 
   return (
-    <div className={cx("wrapper")}>
-      <CarouselTitle />
-      <div className={cx("carousel-wrapper")}>
-        <Carousel {...settings}>
-          {category.map((item) => (
-            <div key={item} className={cx("slider-item")}>
-              <Poster poster={item} height={carouselProps?.height} typeImage={carouselProps?.typeImage}/>
-            </div>
-          ))}
-        </Carousel>
+    category?.length > 0 && (
+      <div className={cx("wrapper")}>
+        <CarouselTitle title={data?.title}/>
+        <div className={cx("carousel-wrapper")}>
+          <Carousel {...settings}>
+            {category.map((item) => (
+              <div key={item} className={cx("slider-item")}>
+                <Poster
+                  poster={item}
+                  height={carouselProps?.height}
+                  typeImage={carouselProps?.typeImage}
+                />
+              </div>
+            ))}
+          </Carousel>
+        </div>
       </div>
-    </div>
+    )
   );
 }
 

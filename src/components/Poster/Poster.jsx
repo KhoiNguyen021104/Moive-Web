@@ -1,17 +1,26 @@
 /* eslint-disable react/prop-types */
 import classNames from "classnames/bind";
 import styles from "./Poster.module.scss";
+import { createImageURL } from "../../helpers/CreateImgaeURL";
+import { Play } from "lucide-react";
 
 const cx = classNames.bind(styles);
 
 function Poster({ poster, height, typeImage }) {
   return (
     <div className={cx("poster")}>
-      <img
-        height={height}
-        src={typeImage === "poster" ? poster?.poster_url : poster?.thumb_url}
-        alt=''
-      />
+      <div className={cx("image")}>
+        <img
+          height={height}
+          src={
+            typeImage === "poster"
+              ? createImageURL(poster?.poster_url)
+              : createImageURL(poster?.thumb_url)
+          }
+          alt=''
+        />
+        <Play />
+      </div>
       <div className={cx("poster__title")}>{poster?.name}</div>
     </div>
   );
