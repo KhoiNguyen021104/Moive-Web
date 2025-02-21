@@ -11,9 +11,9 @@ function MainLayout({ children }) {
         <Header />
       </header>
       <main>{children}</main>
-      <footer>
-        {/* <Footer /> */}
-      </footer>
+      {/* <footer>
+        <Footer />
+      </footer> */}
     </div>
   );
 }

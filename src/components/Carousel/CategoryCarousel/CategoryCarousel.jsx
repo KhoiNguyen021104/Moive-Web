@@ -67,7 +67,6 @@ function CategoryCarousel({ data }) {
       const fetchAPI = async () => {
         const res = await data?.funcAPI({ ...data?.params });
         setCategory(res.items ? res.items : res);
-        console.log("🚀 ~ fetchAPI ~ res:", res);
       };
       fetchAPI();
     }
