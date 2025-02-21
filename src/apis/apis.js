@@ -28,4 +28,6 @@ export const getMoviesByCountryAPI = async ({ type_list, page, sort_field, sort_
   return ((await axios.get(cleanUrl(api))).data).data
 }
 
-
+export const getMovieBySlugAPI = async (slug) => {
+  return (await axios.get(`https://phimapi.com/phim/${slug}`)).data
+}

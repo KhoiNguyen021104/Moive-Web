@@ -3,13 +3,19 @@ import classNames from "classnames/bind";
 import styles from "./Poster.module.scss";
 import { createImageURL } from "../../helpers/CreateImgaeURL";
 import { Play } from "lucide-react";
+import { useNavigate } from "react-router";
 
 const cx = classNames.bind(styles);
 
 function Poster({ poster, height, typeImage }) {
+  const navigate = useNavigate()
+  const handleNavigate = () => {
+    navigate(`/mo-ta-phim/${poster?.slug}`)
+  }
+
   return (
     <div className={cx("poster")}>
-      <div className={cx("image")}>
+      <div onClick={handleNavigate} className={cx("image")}>
         <img
           height={height}
           src={

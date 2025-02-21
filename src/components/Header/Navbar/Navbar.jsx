@@ -4,13 +4,14 @@ import styles from "./Navbar.module.scss";
 import { ChevronDown, Search } from "lucide-react";
 import { useEffect, useState } from "react";
 import { getAllCountriesAPI, getAllTypeMoviesAPI } from "../../../apis/apis";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 
 const cx = classNames.bind(styles);
 
 function Navbar() {
   const [typeMovies, setTypeMovies] = useState([]);
   const [countries, setCountries] = useState([]);
+  const pathname = useLocation().pathname;
   useEffect(() => {
     const fetchTypeMovies = async () => {
       const res = await getAllTypeMoviesAPI();
@@ -56,15 +57,15 @@ function Navbar() {
   return (
     <nav className={cx("navbar-wrapper")}>
       <ul>
-        <li className={cx("active")}>Trang chủ</li>
-        <li>
+        <li className={cx(pathname === "/" && "active")}>Trang chủ</li>
+        <li className={cx(pathname?.includes("/tv-shows") && "active")}>
           <Link to='/tv-shows'>TV shows</Link>
         </li>
-        <li>
-          <Link to='/phim-le'>Phim lẻ</Link>
-        </li>
-        <li>
+        <li className={cx(pathname?.includes("/phim-bo") && "active")}>
           <Link to='phim-bo'>Phim bộ</Link>
+        </li>
+        <li className={cx(pathname?.includes("/phim-le") && "active")}>
+          <Link to='/phim-le'>Phim lẻ</Link>
         </li>
         <li>
           Thể loại
