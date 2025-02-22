@@ -1,11 +1,5 @@
-header {
-  position: fixed;
-  top: 0;
-  width: inherit;
-  z-index: 1000;
-  background: #000;
-}
 .header {
+  width: 100%;
   display: flex;
   align-items: center;
   padding-block: 16px;

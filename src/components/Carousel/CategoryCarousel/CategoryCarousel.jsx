@@ -2,10 +2,11 @@
 import { Carousel } from "antd";
 import classNames from "classnames/bind";
 import styles from "./CategoryCarousel.module.scss";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import Poster from "../../Poster/Poster";
 import CarouselTitle from "../CarouselTitle/CarouselTitle";
+import CarouselArrowPrev from "../CarouselArrow/CarouselArrowPrev/CarouselArrowPrev";
+import CarouselArrowNext from "../CarouselArrow/CarouselArrowNext/CarouselArrowNext";
 
 const cx = classNames.bind(styles);
 
@@ -49,13 +50,13 @@ function CategoryCarousel({ data }) {
     arrows: true,
     draggable: false,
     prevArrow: (
-      <CustomPrevArrow
+      <CarouselArrowPrev
         slidesToShow={carouselProps?.slidesToShow}
         height={carouselProps?.height}
       />
     ),
     nextArrow: (
-      <CustomNextArrow
+      <CarouselArrowNext
         slidesToShow={carouselProps?.slidesToShow}
         height={carouselProps?.height}
       />
@@ -66,7 +67,14 @@ function CategoryCarousel({ data }) {
     if (data?.funcAPI) {
       const fetchAPI = async () => {
         const res = await data?.funcAPI({ ...data?.params });
-        setCategory(res.items ? res.items : res);
+        const newState = res.items ? res.items : res;
+        setCategory(() =>
+          data?.except
+            ? newState?.filter(
+                (item) => item[data?.except?.key] !== data?.except?.value
+              )
+            : newState
+        );
       };
       fetchAPI();
     }
@@ -75,7 +83,7 @@ function CategoryCarousel({ data }) {
   return (
     category?.length > 0 && (
       <div className={cx("wrapper")}>
-        <CarouselTitle title={data?.title}/>
+        <CarouselTitle title={data?.title} />
         <div className={cx("carousel-wrapper")}>
           <Carousel {...settings}>
             {category.map((item) => (
@@ -93,38 +101,5 @@ function CategoryCarousel({ data }) {
     )
   );
 }
-
-const CustomPrevArrow = (props) => {
-  return (
-    <div
-      style={{ height: props?.height }}
-      className={cx(
-        "custom-arrow",
-        "prev-arrow",
-        props?.currentSlide === 0 && "hidden"
-      )}
-      onClick={props.onClick}
-    >
-      <ChevronLeft />
-    </div>
-  );
-};
-
-const CustomNextArrow = (props) => {
-  return (
-    <div
-      style={{ height: props?.height }}
-      className={cx(
-        "custom-arrow",
-        "next-arrow",
-        props?.currentSlide === props?.slideCount - props?.slidesToShow &&
-          "hidden"
-      )}
-      onClick={props.onClick}
-    >
-      <ChevronRight />
-    </div>
-  );
-};
 
 export default CategoryCarousel;

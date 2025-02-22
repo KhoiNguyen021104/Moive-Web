@@ -2,7 +2,6 @@
   width: 100%;
   position: relative;
 
-
   .image {
     position: relative;
     width: 100%;
@@ -23,7 +22,7 @@
       border-radius: 4px;
       display: block;
       object-fit: cover;
-
+      height: var(--height) !important;
     }
 
     >svg {
@@ -55,7 +54,7 @@
 
   .poster__title {
     color: inherit;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
     margin-top: 16px;
   }

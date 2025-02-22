@@ -57,15 +57,17 @@ function Navbar() {
   return (
     <nav className={cx("navbar-wrapper")}>
       <ul>
-        <li className={cx(pathname === "/" && "active")}>Trang chủ</li>
-        <li className={cx(pathname?.includes("/tv-shows") && "active")}>
-          <Link to='/tv-shows'>TV shows</Link>
+        <li className={cx(pathname === "/" && "active")}>
+          <Link to='/'>Trang chủ</Link>
         </li>
         <li className={cx(pathname?.includes("/phim-bo") && "active")}>
           <Link to='phim-bo'>Phim bộ</Link>
         </li>
         <li className={cx(pathname?.includes("/phim-le") && "active")}>
           <Link to='/phim-le'>Phim lẻ</Link>
+        </li>
+        <li className={cx(pathname?.includes("/anime") && "active")}>
+          <Link to='/anime'>Anime</Link>
         </li>
         <li>
           Thể loại
