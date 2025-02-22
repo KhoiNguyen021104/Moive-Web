@@ -1,0 +1,32 @@
+.wrapper {
+  margin-bottom: 32px;
+
+  :global {
+    .slick-track {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .slick-slide {
+      width: 20% !important;
+      margin-right: 12px;
+    }
+
+    .ant-carousel {
+      &:hover .prev-arrow {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      &:hover .next-arrow {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+  }
+
+  .slider-item {
+    color: #fff;
+  }
+}

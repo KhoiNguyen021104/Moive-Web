@@ -23,6 +23,7 @@ export const getMoviesByGenreAPI = async ({ type_list, page, sort_field, sort_ty
   return ((await axios.get(cleanUrl(api))).data).data
 }
 
+
 export const getMoviesByCountryAPI = async ({ type_list, page, sort_field, sort_type, sort_lang, category, year, limit }) => {
   const api = `https://phimapi.com/v1/api/quoc-gia/${type_list}?page=${page}&sort_field=${sort_field}&sort_type=${sort_type}&sort_lang=${sort_lang}&category=${category}&year=${year}&limit=${limit}`
   return ((await axios.get(cleanUrl(api))).data).data
@@ -30,4 +31,4 @@ export const getMoviesByCountryAPI = async ({ type_list, page, sort_field, sort_
 
 export const getMovieBySlugAPI = async (slug) => {
   return (await axios.get(`https://phimapi.com/phim/${slug}`)).data
-}
+}                          

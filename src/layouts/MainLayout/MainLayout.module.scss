@@ -1,8 +1,16 @@
 .wrapper {
-  width: calc(100% - 32px);
-  margin-left: 32px;
+  width: calc(100% - 64px);
+  margin-inline: 32px;
+
+  header {
+    position: fixed;
+    top: 0;
+    width: inherit;
+    z-index: 100000000;
+    background: #000;
+  }
 
   main {
     padding-top: 90px;
   }
-}
+} 

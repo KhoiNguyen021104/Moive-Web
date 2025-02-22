@@ -1,5 +1,6 @@
 .wrapper {
   margin-bottom: 32px;
+
   :global {
     .slick-track {
       display: flex;
@@ -9,58 +10,66 @@
     .slick-slide {
       width: 20% !important;
       margin-right: 12px;
+      height: 100%;
+    }
+
+    .ant-carousel {
+      &:hover .prev-arrow {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      &:hover .next-arrow {
+        visibility: visible;
+        opacity: 1;
+      }
     }
 
   }
 
   .carousel-wrapper {
-    &:hover .custom-arrow {
-      visibility: visible;
-      opacity: 1;
-    }
+    // .custom-arrow {
+    //   display: flex;
+    //   align-items: center;
+    //   position: absolute;
+    //   top: 0;
+    //   width: 6%;
+    //   height: 100%;
+    //   transition: all .3s;
+    //   visibility: hidden;
+    //   opacity: 0;
+    //   box-shadow: none;
+    //   color: #fff;
+    //   cursor: pointer;
+    //   z-index: 1;
+
+    //   >svg {
+    //     width: 40px;
+    //     height: 40px;
+    //     cursor: pointer;
+    //     color: #fff;
+    //   }
+
+    //   &.prev-arrow {
+    //     justify-content: right;
+    //     left: 0;
+    //     background: linear-gradient(90deg, #000000 35%, rgba(0, 0, 0, 0.5) 100%);
+    //   }
+
+    //   &.next-arrow {
+    //     justify-content: left;
+    //     right: 0;
+    //     background: linear-gradient(270deg, #000000 35%, rgba(0, 0, 0, 0.5) 100%);
+    //   }
+
+    //   &.hidden {
+    //     visibility: hidden !important;
+    //     opacity: 0 !important;
+    //   }
+    // }
   }
 
   .slider-item {
     color: #fff;
-  }
-}
-
-.custom-arrow {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  width: 6%;
-  height: 100%;
-  transition: all .3s;
-  visibility: hidden;
-  opacity: 0;
-  box-shadow: none;
-  color: #fff;
-  cursor: pointer;
-  z-index: 1;
-
-  >svg {
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    color: #fff;
-  }
-
-  &.prev-arrow {
-    justify-content: right;
-    left: 0;
-    background: linear-gradient(90deg, #000000 35%, rgba(0, 0, 0, 0.5) 100%);
-  }
-
-  &.next-arrow {
-    justify-content: left;
-    right: 0;
-    background: linear-gradient(270deg, #000000 35%, rgba(0, 0, 0, 0.5) 100%);
-  }
-
-  &.hidden {
-    visibility: hidden !important;
-    opacity: 0 !important;
   }
 }

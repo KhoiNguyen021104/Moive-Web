@@ -8,16 +8,18 @@ import { useNavigate } from "react-router";
 const cx = classNames.bind(styles);
 
 function Poster({ poster, height, typeImage }) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleNavigate = () => {
-    navigate(`/mo-ta-phim/${poster?.slug}`)
-  }
+    navigate(`/mo-ta-phim/${poster?.slug}`);
+  };
 
   return (
     <div className={cx("poster")}>
       <div onClick={handleNavigate} className={cx("image")}>
         <img
-          height={height}
+          style={{
+            "--height": `${height}px`,
+          }}
           src={
             typeImage === "poster"
               ? createImageURL(poster?.poster_url)

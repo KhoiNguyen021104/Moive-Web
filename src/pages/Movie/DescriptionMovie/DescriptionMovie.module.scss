@@ -4,6 +4,84 @@
   display: flex;
   position: relative;
 
+  &.overlay {
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to right, rgba(0, 0, 0, .2), rgba(0, 0, 0, .8));
+      transition: opacity 0.3s ease-in-out;
+      z-index: 10;
+      width: 100%;
+      height: inherit;
+    }
+  }
+
+  .movie__desc__content {
+    width: calc(100% / 3);
+    height: fit-content;
+    margin: auto;
+    z-index: 10000;
+
+    .movie__name {
+      font-size: 32px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      svg {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    .control {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 16px;
+
+      .btn {
+        border: none;
+        outline: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+
+        &.btn-play {
+          background-color: var(--primary-color);
+          padding: 10px 20px;
+          border-radius: 30px;
+        }
+
+        &.btn-save,
+        &.btn-like {
+          padding: 10px;
+          border-radius: 100%;
+          background-color: var(--secondary-color);
+
+          &>svg {
+            &.active {
+              fill: #fff;
+            }
+          }
+        }
+
+        >svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+  }
+
   .movie__thumbnail {
     width: calc(100% / 3 * 2);
     position: relative;
@@ -22,27 +100,6 @@
       z-index: 1;
     }
 
-    .thumbnail__overlay-full {
-      position: absolute;
-      background: linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35));
-      top: 0;
-      bottom: 0;
-      left: -1px;
-      width: 100%;
-      z-index: 10;
-      visibility: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-
-      >svg {
-        fill: var(--primary-color);
-        width: 60px;
-        height: 60px;
-      }
-    }
-
     >img {
       width: 100%;
       height: 100%;
@@ -54,11 +111,35 @@
     position: absolute;
     bottom: 0;
     width: 100%;
+    z-index: 100000;
 
     >ul {
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 64px;
+
+      >li {
+        font-size: 18px;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 8px 16px;
+        cursor: pointer;
+        color: var(--secondary-color);
+
+        &:not(active):hover {
+          color: #fff;
+        }
+
+        &.active {
+          color: #fff;
+          border-bottom: 4px solid var(--primary-color);
+        }
+      }
     }
   }
+}
+
+.carousel {
+  margin-top: 64px;
 }

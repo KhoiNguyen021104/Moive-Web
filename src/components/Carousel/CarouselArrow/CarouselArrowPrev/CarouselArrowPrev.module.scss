@@ -1,0 +1,31 @@
+.custom-arrow {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4%;
+  height: 100%;
+  transition: all .3s;
+  // visibility: hidden;
+  // opacity: 0;
+  box-shadow: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1;
+  justify-content: center;
+  background: linear-gradient(90deg, #000000 35%, rgba(0, 0, 0, 0.5) 100%);
+
+  >svg {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    color: #fff;
+  }
+
+
+  &.hidden {
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+}
