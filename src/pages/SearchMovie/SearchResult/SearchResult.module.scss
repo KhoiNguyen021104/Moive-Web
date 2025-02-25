@@ -1,0 +1,6 @@
+.search__result__wrapper {
+  display: grid;
+  grid-template-columns: calc(20% - 16px) calc(20% - 16px) calc(20% - 16px) calc(20% - 16px) calc(20% - 16px);
+  column-gap: 16px;
+  margin-top: 16px;
+}

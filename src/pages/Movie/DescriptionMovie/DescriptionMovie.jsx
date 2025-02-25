@@ -14,6 +14,7 @@ const cx = classNames.bind(styles);
 
 function DescriptionMovie() {
   const [movie, setMovie] = useState(null);
+  console.log("🚀 ~ DescriptionMovie ~ movie:", movie);
   const [isMark, setIsMark] = useState(false);
   const [isLike, setIsLike] = useState(false);
   const navigate = useNavigate();
@@ -118,15 +119,17 @@ function DescriptionMovie() {
           </div>
         </div>
         <div className={cx("carousel")}>
-          <EpisodesCarousel
-            data={{
-              size: "small",
-              episodes: movie?.episodes[0]?.server_data,
-              slug: movie?.movie?.slug,
-              title: "Danh sách tập phim",
-              image: movie?.movie?.thumb_url,
-            }}
-          />
+          {movie?.movie?.type === "series" && (
+            <EpisodesCarousel
+              data={{
+                size: "small",
+                episodes: movie?.episodes[0]?.server_data,
+                slug: movie?.movie?.slug,
+                title: "Danh sách tập phim",
+                image: movie?.movie?.thumb_url,
+              }}
+            />
+          )}
           <CategoryCarousel
             data={{
               size: "medium",

@@ -1,0 +1,6 @@
+.list__movies {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto;
+  column-gap: 16px;
+  row-gap: 16px;
+}

@@ -20,6 +20,7 @@ function ControlBottom({
   funcControl,
   videoStatus,
   isAutoNextEpisode,
+  episodeTotal,
 }) {
   return (
     <>
@@ -75,12 +76,14 @@ function ControlBottom({
           />
         </div>
         <div className={cx("btn-control")}>
-          <div className={cx("switch", isAutoNextEpisode ? "on" : "off")}>
-            <Switch
-              defaultChecked={isAutoNextEpisode}
-              onChange={funcControl?.toggleAutoNext}
-            />
-          </div>
+          {episodeTotal > 1 && (
+            <div className={cx("switch", isAutoNextEpisode ? "on" : "off")}>
+              <Switch
+                defaultChecked={isAutoNextEpisode}
+                onChange={funcControl?.toggleAutoNext}
+              />
+            </div>
+          )}
           <button>
             <Settings />
           </button>

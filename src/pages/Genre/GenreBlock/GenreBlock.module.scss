@@ -1,5 +1,31 @@
 .genre__block {
-  .genre__name {
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+  border-radius: 15px;
+
+  >img {
+    width: 100%;
+    border-radius: 15px;
+    border: 2px solid transparent;;
     
+    &.selected {
+      border-color: #fff;
+      transition: all ease 0.5s;
+    }
   }
+
+  .genre__name {
+    position: absolute;
+    bottom: 12px;
+    left: 10%;
+    transform: translateX(-10%);
+    text-align: left;
+    font-weight: 600;
+    font-size: 24px;
+    white-space: nowrap;
+  }
+
+
+  
 }

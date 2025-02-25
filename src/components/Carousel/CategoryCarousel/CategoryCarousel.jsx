@@ -17,7 +17,7 @@ function CategoryCarousel({ data }) {
     switch (data?.size) {
       case "small":
         setCarouselProps({
-          height: 115,
+          height: 150,
           slidesToScroll: 5,
           slidesToShow: 5.2,
           typeImage: "thumbnail",
@@ -25,7 +25,7 @@ function CategoryCarousel({ data }) {
         break;
       case "medium":
         setCarouselProps({
-          height: 200,
+          height: 250,
           slidesToScroll: 3,
           slidesToShow: 3.2,
           typeImage: "thumbnail",
@@ -33,7 +33,7 @@ function CategoryCarousel({ data }) {
         break;
       case "large":
         setCarouselProps({
-          height: 300,
+          height: 520,
           slidesToScroll: 5,
           slidesToShow: 5.2,
           typeImage: "poster",

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import classNames from "classnames/bind";
 import styles from "./Poster.module.scss";
-import { createImageURL } from "../../helpers/CreateImgaeURL";
+import { createImageURL } from "../../helpers/CreateImageURL";
 import { Play } from "lucide-react";
 import { useNavigate } from "react-router";
 

@@ -8,7 +8,6 @@ function CarouselTitle({ title }) {
   return (
     <div className={cx("carousel__title")}>
       <h2>{title}</h2>
-      <a href=''>Xem tất cả</a>
     </div>
   );
 }

@@ -10,16 +10,17 @@ import CarouselArrowNext from "../CarouselArrow/CarouselArrowNext/CarouselArrowN
 const cx = classNames.bind(styles);
 
 function EpisodesCarousel({ data }) {
+  console.log("🚀 ~ EpisodesCarousel ~ data:", data);
   const settings = {
     dots: false,
     infinite: false,
     speed: 700,
-    slidesToShow: 5.2,
-    slidesToScroll: 5,
-    arrows: true,
+    slidesToShow: data?.episodes?.length < 6 ? data?.episodes?.length : 5.2,
+    slidesToScroll: data?.episodes?.length < 6 ? 0 : 5.2,
+    arrows: data?.episodes?.length > 6 ,
     draggable: false,
-    prevArrow: <CarouselArrowPrev slidesToShow={5.2} height={115} />,
-    nextArrow: <CarouselArrowNext slidesToShow={5.2} height={115} />,
+    prevArrow: <CarouselArrowPrev slidesToShow={5.2} height={150} />,
+    nextArrow: <CarouselArrowNext slidesToShow={5.2} height={150} />,
   };
 
   return (
@@ -33,9 +34,9 @@ function EpisodesCarousel({ data }) {
                 <Poster
                   poster={{
                     thumb_url: data?.image,
-                    name: item?.name
+                    name: item?.name,
                   }}
-                  height={115}
+                  height={150}
                   typeImage='thumbnail'
                 />
               </div>

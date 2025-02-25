@@ -15,7 +15,7 @@ function ControlTop({ title, slug }) {
     <>
       <div className={cx("left")}>
         <ArrowLeft onClick={handleBack} />
-        <span>{title}</span>
+        <span>{title}</span> 
       </div>
       <div className={cx("right")}>
         <img src='\src\assets\imgs\logo.png' alt='' />

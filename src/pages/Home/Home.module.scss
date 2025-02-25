@@ -1,7 +1,12 @@
 .home {
   width: 100%;
   .carousel {
-    width: 100%;
+    width: calc(100% - 64px);
     margin-bottom: 24px;
+    padding-inline: 32px;
+  }
+
+  .banner {
+    // width: 100vw;
   }
 }

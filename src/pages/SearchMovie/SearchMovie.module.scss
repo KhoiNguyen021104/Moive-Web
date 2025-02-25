@@ -1,0 +1,72 @@
+.search__movie {
+  .search__field {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .search__control {
+      width: 100%;
+      display: flex;
+      position: relative;
+
+      input {
+        outline: unset;
+        border: unset;
+        width: 100%;
+        padding: 20px 18px;
+        color: #fff;
+        outline: unset;
+        font-size: 18px;
+        caret-color: var(--primary-color);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), #202020;
+        border-radius: 3px;
+
+        &::placeholder {
+          font-weight: 600;
+        }
+      }
+
+      >.btn-search {
+        background-color: var(--primary-color);
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        height: 100%;
+        padding-inline: 20px;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+        font-size: 18px;
+        font-weight: bold;
+
+        >svg {
+          width: 32px;
+          height: 32px;
+        }
+      }
+
+      >.btn-reset {
+        position: absolute;
+        right: 10%;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+    }
+
+    .popper {
+      margin-top: 4px;
+      width: 100%;
+      background: #202020;
+      max-height: 500px;
+      overflow: auto;
+    }
+  }
+
+  .search__result {
+    margin-top: 16px;
+  }
+}
