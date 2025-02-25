@@ -3,18 +3,19 @@ import styles from "./Navbar.module.scss";
 
 import { ChevronDown, Search } from "lucide-react";
 import { useEffect, useState } from "react";
-import { getAllCountriesAPI, getAllTypeMoviesAPI } from "../../../apis/apis";
-import { Link, useLocation } from "react-router";
+import { getAllCountriesAPI, getAllMovieGenreAPI } from "../../../apis/apis";
+import { Link, useLocation, useNavigate } from "react-router";
 
 const cx = classNames.bind(styles);
 
 function Navbar() {
-  const [typeMovies, setTypeMovies] = useState([]);
+  const [movieGenres, setMovieGenre] = useState([]);
   const [countries, setCountries] = useState([]);
+  const navigate = useNavigate();
   const pathname = useLocation().pathname;
   useEffect(() => {
-    const fetchTypeMovies = async () => {
-      const res = await getAllTypeMoviesAPI();
+    const fetchAllMovieGenres = async () => {
+      const res = await getAllMovieGenreAPI();
       let copyRes = [...res];
       let newState = [];
 
@@ -26,10 +27,10 @@ function Navbar() {
           copyRes.splice(0, 8);
         }
       }
-      setTypeMovies(newState);
+      setMovieGenre(newState);
     };
 
-    fetchTypeMovies();
+    fetchAllMovieGenres();
   }, []);
 
   useEffect(() => {
@@ -69,12 +70,12 @@ function Navbar() {
         <li className={cx(pathname?.includes("/anime") && "active")}>
           <Link to='/anime'>Anime</Link>
         </li>
-        <li>
-          Thể loại
-          <ChevronDown />
-          {typeMovies?.length > 0 && (
+        <li className={cx(pathname?.includes("/the-loai") && "active")}>
+          <Link to='/the-loai'>Thể loại</Link>
+          {/* <ChevronDown />
+          {movieGenres?.length > 0 && (
             <ul className={cx("subnav")}>
-              {typeMovies?.map((parts, index) => (
+              {movieGenres?.map((parts, index) => (
                 <div key={index} className={cx("subnav-col")}>
                   {parts?.map((type) => (
                     <Link to={type?.slug} key={type?._id}>
@@ -84,11 +85,11 @@ function Navbar() {
                 </div>
               ))}
             </ul>
-          )}
+          )} */}
         </li>
-        <li>
-          Quốc gia
-          <ChevronDown />
+        {/* <li>
+          Quốc gia */}
+          {/* <ChevronDown />
           {countries?.length > 0 && (
             <ul className={cx("subnav")}>
               {countries?.map((parts, index) => (
@@ -101,8 +102,8 @@ function Navbar() {
                 </div>
               ))}
             </ul>
-          )}
-        </li>
+          )} */}
+        {/* </li> */}
       </ul>
       <div className={cx("navbar-right")}>
         {/* <div className={cx("search-field")}>
@@ -111,10 +112,13 @@ function Navbar() {
             <Search />
           </button>
         </div> */}
-        <button className={cx("btn-search")}>
+        <button
+          className={cx("btn-search")}
+          onClick={() => navigate("/tim-kiem")}
+        >
           <Search />
         </button>
-        <button className={cx("btn-login")}>Đăng nhập</button>
+        <button onClick={() => navigate('/dang-nhap')} className={cx("btn-login")}>Đăng nhập</button>
       </div>
     </nav>
   );

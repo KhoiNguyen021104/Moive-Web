@@ -47,12 +47,13 @@ function WatchMovie() {
           data={{
             slug: movie?.slug,
             ctrlTop: {
-              title: `${movie?.name} - ${currentEpisode?.name}`,
+              title: episodes?.length !== 1 ? `${movie?.name} - ${currentEpisode?.name}` : `${movie?.name}`,
             },
             ctrlBottom: {},
             src: currentEpisode?.link_m3u8,
             setIsHiddenCursor,
             episode,
+            episodeTotal: episodes?.length
           }}
         />
       </div>

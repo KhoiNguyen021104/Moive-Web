@@ -7,6 +7,7 @@ import {
   getMoviesByGenreAPI,
   getMoviesByTypeAPI,
 } from "../../apis/apis";
+import Banner from "../../components/Banner/Banner";
 
 const cx = classNames.bind(styles);
 
@@ -22,6 +23,9 @@ function Home() {
 
   return (
     <div className={cx("home")}>
+      <div className={cx("banner")}>
+        <Banner />
+      </div>
       <div className={cx("carousel")}>
         <CategoryCarousel
           data={{

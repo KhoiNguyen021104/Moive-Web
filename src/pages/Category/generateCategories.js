@@ -52,6 +52,30 @@ export const generateCategories = (category) => {
           },
           title: "Phim bộ Việt Nam đặc sắc",
         },
+        {
+          ...prototypeData,
+          params: {
+            ...prototypeData.params,
+            country: "viet-nam",
+          },
+          title: "Phim bộ Việt Nam đặc sắc",
+        },
+        {
+          ...prototypeData,
+          params: {
+            ...prototypeData.params,
+            country: "viet-nam",
+          },
+          title: "Phim bộ Việt Nam đặc sắc",
+        },
+        {
+          ...prototypeData,
+          params: {
+            ...prototypeData.params,
+            country: "viet-nam",
+          },
+          title: "Phim bộ Việt Nam đặc sắc",
+        },
       ]
       break;
     case 'phim-le':

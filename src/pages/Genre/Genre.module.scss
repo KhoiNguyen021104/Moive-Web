@@ -1,0 +1,18 @@
+.genre__wrapper {
+
+  .genre__list {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    column-gap: 16px;
+    row-gap: 16px;
+  }
+
+  .genre__movies {
+    margin-top: 32px;
+
+    .genre__list_movie {
+      margin-top: 16px;
+    }
+  }
+}

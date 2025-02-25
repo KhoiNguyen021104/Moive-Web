@@ -20,6 +20,8 @@
 * {
   box-sizing: border-box;
   color: #fff;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
 }
 
 

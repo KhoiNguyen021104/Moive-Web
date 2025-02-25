@@ -1,8 +1,9 @@
 .movie__desc__wrapper {
-  width: 100%;
+  width: calc(100% - 32px);
   max-width: 100%;
   display: flex;
   position: relative;
+  margin-left: 32px;
 
   &.overlay {
     &::after {

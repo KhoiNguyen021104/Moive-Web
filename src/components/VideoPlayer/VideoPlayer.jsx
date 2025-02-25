@@ -10,6 +10,7 @@ import { useNavigate } from "react-router";
 const cx = classNames.bind(styles);
 
 function VideoPlayer({ data }) {
+  console.log("🚀 ~ VideoPlayer ~ data:", data);
   const playerWrapperRef = useRef(null);
   const videoRef = useRef(null);
   const [videoStatus, setVideoStatus] = useState({
@@ -108,14 +109,17 @@ function VideoPlayer({ data }) {
 
   useEffect(() => {
     if (videoStatus?.isEnded) {
-      if (isAutoNextEpisode) {
-        const nextEpisode = parseInt(data?.episode) + 1;
-        navigate(`/xem-phim/${data?.slug}?tap=${nextEpisode}`, {
-          replace: true,
-        });
+      if (data?.episodeTotal > 1) {
+        if (isAutoNextEpisode) {
+          const nextEpisode = parseInt(data?.episode) + 1;
+          navigate(`/xem-phim/${data?.slug}?tap=${nextEpisode}`, {
+            replace: true,
+          });
+        }
       }
     }
   }, [
+    data?.episodeTotal,
     data?.episode,
     data?.slug,
     isAutoNextEpisode,
@@ -190,7 +194,7 @@ function VideoPlayer({ data }) {
   };
 
   useEffect(() => {
-    console.log("🚀 ~ VideoPlayer ~ videoStatus:", videoStatus);
+    // console.log("🚀 ~ VideoPlayer ~ videoStatus:", videoStatus);
   }, [videoStatus]);
 
   return (
@@ -224,6 +228,7 @@ function VideoPlayer({ data }) {
           }}
           videoStatus={videoStatus}
           isAutoNextEpisode={isAutoNextEpisode}
+          episodeTotal={data?.episodeTotal}
         />
       </div>
     </div>
