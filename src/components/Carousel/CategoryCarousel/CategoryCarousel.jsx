@@ -92,6 +92,7 @@ function CategoryCarousel({ data }) {
                   poster={item}
                   height={carouselProps?.height}
                   typeImage={carouselProps?.typeImage}
+                  slug={item?.slug}
                 />
               </div>
             ))}
