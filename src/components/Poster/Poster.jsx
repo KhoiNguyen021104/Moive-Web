@@ -7,10 +7,13 @@ import { useNavigate } from "react-router";
 
 const cx = classNames.bind(styles);
 
-function Poster({ poster, height, typeImage }) {
+function Poster({ poster, height, typeImage, slug, action = "" }) {
+  console.log('🚀 ~ Poster ~ action:', action)
   const navigate = useNavigate();
+  const episode = poster?.name?.split("").at(-1);
   const handleNavigate = () => {
-    navigate(`/mo-ta-phim/${poster?.slug}`);
+    if (action === "watch") navigate(`/xem-phim/${slug}?tap=${episode}`);
+    else navigate(`/mo-ta-phim/${slug}`);
   };
 
   return (

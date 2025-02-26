@@ -32,8 +32,7 @@ function Banner() {
     fetch();
   }, []);
   return (
-    movies?.length >
-    0(
+    movies?.length > 0 && (
       <div className={cx("banner_wrapper")}>
         <Carousel {...settings} autoplay>
           {movies?.map((item, index) => (

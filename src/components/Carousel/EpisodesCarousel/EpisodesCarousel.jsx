@@ -38,6 +38,8 @@ function EpisodesCarousel({ data }) {
                   }}
                   height={150}
                   typeImage='thumbnail'
+                  slug={data?.slug}
+                  action="watch"
                 />
               </div>
             ))}
