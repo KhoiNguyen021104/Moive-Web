@@ -10,7 +10,7 @@ function Header() {
   return (
     <div className={cx("header")}>
       <div className={cx("header__logo")}>
-        <img onClick={() => navigate('/')} width={125} src='\src\assets\imgs\logo.png' alt=''/>
+        <img onClick={() => navigate('/')} width={125} src='\imgs\logo.png' alt=''/>
       </div>
       <div className={cx("navbar")}>
         <Navbar />

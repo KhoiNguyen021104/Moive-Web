@@ -16,18 +16,18 @@ function Register() {
     confirmPassword: "",
   });
   const handleRegister = async () => {
-    if(formData.password !== formData.confirmPassword) {
-      alert("Mật khẩu không trùng kh��p!");
-      return;
-    }
-    delete formData.confirmPassword
-    console.log("🚀 ~ handleRegister ~ formData:", formData);
-    const response = await registerAPI(formData);
-    console.log('🚀 ~ handleRegister ~ response:', response)
-    if (response) {
-      alert("Register successful!");
-      navigate("/dang-nhap");
-    }
+    // if(formData.password !== formData.confirmPassword) {
+    //   alert("Mật khẩu không trùng kh��p!");
+    //   return;
+    // }
+    // delete formData.confirmPassword
+    // console.log("🚀 ~ handleRegister ~ formData:", formData);
+    // const response = await registerAPI(formData);
+    // console.log('🚀 ~ handleRegister ~ response:', response)
+    // if (response) {
+    //   alert("Register successful!");
+    // }
+    navigate("/dang-nhap");
   };
   return (
     <div className={cx("login__wrapper")}>

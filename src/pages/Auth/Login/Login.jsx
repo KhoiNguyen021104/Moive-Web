@@ -14,18 +14,18 @@ function Login() {
     password: "",
   });
   const handleLogin = async () => {
-    console.log("🚀 ~ handleLogin ~ formData:", formData);
-    const response = await loginAPI(formData);
-    if (response) {
-      const user = {
-        _id: response._id,
-        username: response.username,
-        displayName: response.displayName,
-      };
-      localStorage.setItem("user", JSON.stringify(user));
-      alert("Login successful!");
-      navigate("/");
-    }
+    // console.log("🚀 ~ handleLogin ~ formData:", formData);
+    // const response = await loginAPI(formData);
+    // if (response) {
+    //   const user = {
+    //     _id: response._id,
+    //     username: response.username,
+    //     displayName: response.displayName,
+    //   };
+    //   localStorage.setItem("user", JSON.stringify(user));
+    //   alert("Login successful!");
+    // }
+    navigate("/");
   };
   return (
     <div className={cx("login__wrapper")}>
