@@ -6,6 +6,7 @@ import Poster from "../../../components/Poster/Poster";
 const cx = classNames.bind(styles);
 
 function ListMovies({ listMovies }) {
+  console.log('🚀 ~ ListMovies ~ listMovies:', listMovies)
   return (
     listMovies && (
       <div className={cx("list__movies")}>
@@ -20,6 +21,7 @@ function ListMovies({ listMovies }) {
               name: item?.name,
               slug: item?.slug
             }}
+            slug={item?.slug}
           />
         ))}
       </div>
