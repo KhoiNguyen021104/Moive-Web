@@ -13,39 +13,24 @@ const cx = classNames.bind(styles);
 function Genre() {
   const movieGenres = useMemo(
     () => [
-      { title: "Gia đình", image: "/src/assets/imgs/genres/gia-dinh.png" },
-      { title: "Tâm lý", image: "/src/assets/imgs/genres/tam-li.png" },
-      { title: "Hành động", image: "/src/assets/imgs/genres/hanh-dong.png" },
-      { title: "Hài", image: "/src/assets/imgs/genres/hai-huoc.png" },
-      { title: "Võ thuật", image: "/src/assets/imgs/genres/vo-thuat.png" },
-      { title: "Lãng mạn", image: "/src/assets/imgs/genres/tinh-cam.png" },
-      { title: "Tài liệu", image: "/src/assets/imgs/genres/tai-lieu.png" },
-      { title: "Cổ trang", image: "/src/assets/imgs/genres/co-trang.png" },
-      { title: "Kinh dị", image: "/src/assets/imgs/genres/kinh-di.png" },
-      {
-        title: "Khoa học",
-        image: "/src/assets/imgs/genres/vien-tuong.png",
-      },
-      {
-        title: "Anime",
-        image: "/src/assets/imgs/genres/anime.png",
-      },
-      {
-        title: "Kinh điển",
-        image: "/src/assets/imgs/genres/kinh-dien.png",
-      },
-      {
-        title: "Lịch sử",
-        image: "/src/assets/imgs/genres/lich-su.png",
-      },
-      {
-        title: "Bí ẩn",
-        image: "/src/assets/imgs/genres/bi-an.png",
-      },
+      { title: "Gia đình", image: "/imgs/genres/gia-dinh.png" },
+      { title: "Tâm lý", image: "/imgs/genres/tam-li.png" },
+      { title: "Hành động", image: "/imgs/genres/hanh-dong.png" },
+      { title: "Hài", image: "/imgs/genres/hai-huoc.png" },
+      { title: "Võ thuật", image: "/imgs/genres/vo-thuat.png" },
+      { title: "Lãng mạn", image: "/imgs/genres/tinh-cam.png" },
+      { title: "Tài liệu", image: "/imgs/genres/tai-lieu.png" },
+      { title: "Cổ trang", image: "/imgs/genres/co-trang.png" },
+      { title: "Kinh dị", image: "/imgs/genres/kinh-di.png" },
+      { title: "Khoa học", image: "/imgs/genres/vien-tuong.png" },
+      { title: "Anime", image: "/imgs/genres/anime.png" },
+      { title: "Kinh điển", image: "/imgs/genres/kinh-dien.png" },
+      { title: "Lịch sử", image: "/imgs/genres/lich-su.png" },
+      { title: "Bí ẩn", image: "/imgs/genres/bi-an.png" },
     ],
     []
   );
-
+  
   const [listMovies, setListMovies] = useState([]);
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
