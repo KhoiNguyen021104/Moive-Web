@@ -14,7 +14,6 @@ const cx = classNames.bind(styles);
 
 function DescriptionMovie() {
   const [movie, setMovie] = useState(null);
-  console.log("🚀 ~ DescriptionMovie ~ movie:", movie);
   const [isMark, setIsMark] = useState(false);
   const [isLike, setIsLike] = useState(false);
   const navigate = useNavigate();
